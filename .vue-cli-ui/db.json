@@ -1,0 +1,29 @@
+{
+  "projects": [
+    {
+      "id": "283phqaUd",
+      "path": "C:\\Users\\moldo\\music-app",
+      "favorite": 0,
+      "type": "vue",
+      "name": "music-app",
+      "openDate": 1630701835061,
+      "widgets": [
+        {
+          "id": "sZhc4VKJZN",
+          "definitionId": "org.vue.widgets.kill-port",
+          "x": 3,
+          "y": 0,
+          "width": 2,
+          "height": 1,
+          "configured": true,
+          "config": null
+        }
+      ]
+    }
+  ],
+  "foldersFavorite": [],
+  "tasks": [],
+  "config": {
+    "lastOpenProject": "283phqaUd"
+  }
+}
