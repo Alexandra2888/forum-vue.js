@@ -1,4 +1,4 @@
-xport default {
+export default {
   data () {
     return {
       asyncDataStatus_ready: false
