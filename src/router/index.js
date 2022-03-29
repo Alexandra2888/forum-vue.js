@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../components/Home.vue";
+import PageThreadShow from "../components/PageThreadShow.vue";
+import NotFound from "../components/NotFound.vue";
+import sourceData from "../../data.json";
 
 const routes = [
   {
@@ -8,13 +11,37 @@ const routes = [
     component: Home,
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/thread/:id",
+    name: "ThreadShow",
+    component: PageThreadShow,
+    props: true,
+    beforeEnter(to, from, next) {
+      // check if thread exists
+      const threadExists = sourceData.threads.find(
+        (thread) => thread.id === to.params.id
+      );
+      // if exists continue
+      if (threadExists) {
+        return next();
+      } else {
+        next({
+          name: "NotFound",
+          params: { pathMatch: to.path.substring(1).split("/") },
+          // preserve existing query and hash
+          query: to.query,
+          hash: to.hash,
+        });
+      }
+      // if doesnt exist redirect to not found
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
   },
 ];
 

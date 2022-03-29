@@ -1,11 +1,15 @@
 <template>
-  <div id="nav">
-<div class="container">
-  <router-view />
-</div>
+  <div class="container">
+    <router-view />
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  name: "App",
+};
+</script>
 
+<style>
+@import "./assets/css/style.css";
 </style>
