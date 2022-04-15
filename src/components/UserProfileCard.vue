@@ -2,7 +2,7 @@
   <div>
     <div class="profile-card">
       <p class="text-center">
-        <AppAvatarImg
+        <img
           :src="user.avatar"
           :alt="`${user.name} profile picture`"
           class="avatar-xlarge"
@@ -29,23 +29,29 @@
         <a :href="user.website">{{ user.website }}</a>
       </p>
     </div>
+    <p class="text-xsmall text-faded text-center">
+      Member since june 2003, last visited 4 hours ago
+    </p>
     <div class="text-center">
+      <hr />
       <router-link
         :to="{name: 'ProfileEdit'}"
         class="btn-green btn-small">
-        Edit Profile
-      </router-link>
+          Edit Profile
+        </router-link>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    user: {
-      type: Object,
-      required: true
-    }
-  }
-}
+	props: {
+		user: {
+			type: Object,
+			required: true,
+		},
+	},
+};
 </script>
+
+<style></style>

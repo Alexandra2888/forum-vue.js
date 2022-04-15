@@ -1,13 +1,13 @@
 <template>
   <div class="col-full">
     <div class="forum-list">
-
       <h2 class="list-title">
-        <router-link v-if="categoryId" :to="{name: 'Category', params: {id: categoryId}}">{{ title }}</router-link>
-        <span v-else>{{ title }}</span>
+        <router-link v-if="categoryId" :to="{name: 'Category', params: {id: categoryId}}">
+          {{ title }}
+        </router-link>
+        <span v-else>{{title}}</span>
       </h2>
-
-      <div class="forum-listing" v-for="forum in forums" :key="forum.id">
+      <div class="forum-listing" v-for="forum in forums" :key="forum">
         <div class="forum-details">
           <router-link
             :to="{name: 'Forum', params: {id: forum.id}}"
@@ -62,8 +62,3 @@ export default {
 <style scoped>
 
 </style>
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Statu

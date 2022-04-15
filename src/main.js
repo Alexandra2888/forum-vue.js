@@ -2,38 +2,35 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from '@/router'
 import store from '@/store'
-import firebase from '@/helpers/firebase'
-import firebaseConfig from '@/config/firebase'
-import FontAwesome from '@/plugins/FontAwesome'
-import ClickOutsideDirective from '@/plugins/ClickOutsideDirective'
-import PageScrollDirective from '@/plugins/PageScrollDirective'
-import Vue3Pagination from '@/plugins/Vue3Pagination'
-import VeeValidatePlugin from '@/plugins/VeeValidatePlugin'
-import { createHead } from '@vueuse/head'
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig)
-
+// Create a variable to store our Vue instance
 const forumApp = createApp(App)
+
+// Use Router
 forumApp.use(router)
-forumApp.use(store)
-forumApp.use(FontAwesome)
-forumApp.use(ClickOutsideDirective)
-forumApp.use(PageScrollDirective)
-forumApp.use(Vue3Pagination)
-forumApp.use(VeeValidatePlugin)
-forumApp.use(createHead())
+forumApp.use(store);
 
-const requireComponent = require.context('./components', true, /App[A-Z]\w+\.(vue|js)$/)
+// Able to extend and configure our instance before we mount to the DOM
+
+// Registers all Base components without individually importing them
+const requireComponent = require.context(
+	"./components",
+	true,
+	/Base[A-Z]\w+\.(vue|js)$/
+);
 requireComponent.keys().forEach(function (fileName) {
-  let baseComponentConfig = requireComponent(fileName)
-  baseComponentConfig = baseComponentConfig.default || baseComponentConfig
-  const baseComponentName = baseComponentConfig.name || (
-    fileName
-      .replace(/^.+\//, '')
-      .replace(/\.\w+$/, '')
-  )
-  forumApp.component(baseComponentName, baseComponentConfig)
-})
+	let baseComponentConfig = requireComponent(fileName);
+	baseComponentConfig = baseComponentConfig.default || baseComponentConfig;
+	const baseComponentName =
+		baseComponentConfig.name ||
+		fileName.replace(/^.+\//, "").replace(/\.\w+$/, "");
+	forumApp.component(baseComponentName, baseComponentConfig);
+});
 
+// Install a global plugin using the 'use' function
+// forumApp.use(SomePlugin)
+
+
+
+// Mount our Vue instance to the DOM 
 forumApp.mount('#app')
