@@ -1,19 +1,20 @@
 <template>
-  <the-navbar/>
+<TheNavbar/>
   <div class="container">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import TheNavbar from './components/TheNavbar.vue'
-
+import TheNavbar from '@/components/TheNavbar'
 export default {
-  components: { TheNavbar },
   name: 'App',
+  components: {
+    TheNavbar
+  }
 }
 </script>
 
 <style>
-  @import "assets/styles.css";  
+@import "assets/style.css";
 </style>

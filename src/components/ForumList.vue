@@ -2,25 +2,28 @@
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <router-link v-if="categoryId" :to="{name: 'Category', params: {id: categoryId}}">
-          {{ title }}
-        </router-link>
-        <span v-else>{{title}}</span>
+        <router-link
+          v-if="categoryId"
+          :to="{ name: 'Category', params: { id: categoryId } }"
+          >{{ title }}</router-link
+        >
+        <span v-else>{{ title }}</span>
       </h2>
-      <div class="forum-listing" v-for="forum in forums" :key="forum">
+
+      <div class="forum-listing" v-for="forum in forums" :key="forum.id">
         <div class="forum-details">
           <router-link
-            :to="{name: 'Forum', params: {id: forum.id}}"
+            :to="{ name: 'Forum', params: { id: forum.id } }"
             class="text-xlarge"
+            >{{ forum.name }}</router-link
           >
-            {{ forum.name }}
-          </router-link>
-          <p>{{ forum.description }}</p>
+
+          <p class="forum-description ">{{ forum.description }}</p>
         </div>
 
         <div class="threads-count">
           <p>
-            <span class="count">{{ forum.threads?.length }}</span>
+            <span class="count"> {{ forum.threads?.length }}</span>
             {{ forumThreadsWord(forum) }}
           </p>
         </div>
@@ -33,6 +36,7 @@
 
 <script>
 export default {
+  name: 'ForumList',
   props: {
     forums: {
       required: true,
@@ -59,6 +63,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style lang="scss" scoped></style>

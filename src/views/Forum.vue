@@ -10,14 +10,16 @@
   </div>
 
   <div class="col-full push-top">
-    <ThreadList :threads="threads"/>
+    <ThreadList :threads="threads" />
   </div>
 </template>
 
 <script>
 import ThreadList from '@/components/ThreadList'
 export default {
-  components: { ThreadList },
+  components: {
+    ThreadList
+  },
   props: {
     id: {
       required: true,
@@ -35,5 +37,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style lang="scss" scoped></style>

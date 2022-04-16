@@ -4,7 +4,7 @@
       <p class="text-center">
         <img
           :src="user.avatar"
-          :alt="`${user.name} profile picture`"
+          alt="`${user.name} profile picture`"
           class="avatar-xlarge img-update"
         />
       </p>
@@ -75,7 +75,7 @@
       </div>
 
       <div class="btn-group space-between">
-        <button class="btn-ghost" @click="cancel">Cancel</button>
+        <button class="btn-ghost">Cancel</button>
         <button type="submit" class="btn-blue">Save</button>
       </div>
     </form>
@@ -84,6 +84,7 @@
 
 <script>
 export default {
+  name: 'UserProfileCardEditor',
   props: {
     user: {
       type: Object,
@@ -97,12 +98,10 @@ export default {
   },
   methods: {
     save () {
-      this.$store.dispatch('updateUser', { ...this.activeUser });
-      this.$router.push({ name: 'Profile' });
-    },
-    cancel(){
-      this.$router.push({ name: 'Profile' });
+      this.$store.dispatch('updateUser', { ...this.activeUser })
     }
   }
 }
 </script>
+
+<style lang="scss" scoped></style>
