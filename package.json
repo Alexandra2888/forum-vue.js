@@ -10,7 +10,6 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "dayjs": "^1.10.7",
-    "eslint-plugin-import": "^2.26.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
