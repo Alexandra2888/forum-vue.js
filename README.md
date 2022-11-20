@@ -1,5 +1,8 @@
 # forum
 
+# You can see it live here:
+https://legendary-chaja-f6307d.netlify.app/
+
 ## Project setup
 
 ```
