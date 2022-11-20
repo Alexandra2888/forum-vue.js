@@ -3,6 +3,8 @@
 # You can see it live here:
 https://legendary-chaja-f6307d.netlify.app/
 
+<img src="https://github.com/Alexandra2888/forum-vue.js/blob/main/forum.jpg" alt="forum"/>
+
 ## Project setup
 
 ```
